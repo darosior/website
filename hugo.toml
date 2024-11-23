@@ -1,0 +1,63 @@
+baseURL = 'https://antoinep.com/'
+languageCode = 'en-us'
+title = 'Antoine Poinsot'
+
+theme = "devise"
+relativeURLs = true
+enableRobotsTXT = true
+copyright = " "
+
+# TODO: PGP pubkey and Plausible
+
+# Menu items are disabled until i write the first blog post.
+#[menu]
+#  [[menu.main]]
+#    identifier = "about"
+#    name = "About"
+#    title = "About"
+#    url = "/"
+#    weight = -110
+#  [[menu.main]]
+#    identifier = "posts"
+#    name = "Posts"
+#    title = "Posts"
+#    url = "/posts/"
+#    weight = -100
+#  [[menu.main]]
+#    identifier = "categories"
+#    name = "Categories"
+#    title = "Categories"
+#    url = "/categories/"
+#    weight = -90
+
+# Configuration Features
+[params]
+  description = "Antoine Poinsot personal website"
+  header_title = "Antoine Poinsot"
+  header_subtitle = "590B 7292 695A FFA5 B672 CBB2 E13F C145 CD3F 4304"
+  home_image = "/images/kebab_bordeaux.jpg"          # Path to header image starting from the static directory (optional)
+  recent_posts = 5                           # Max amount of recent posts to show
+  mainSections = []   # Main sections to include in recent posts
+  [params.style]                             # CSS style overrides
+    backgroundColor = "#f8f9fa"
+    homeImageBorderColor = "#ffffff"
+    fontFamilyBase = "Helvetica Neue"        # First-choice font
+    fontColor = "#212529"
+  [[params.social]]
+    fa_icon = "fab fa-twitter fa-1x"
+    href = "https://twitter.com/darosior"
+  [[params.social]]
+    fa_icon = "fab fa-github fa-1x"
+    href = "http://github.com/darosior"
+  [[params.social]]
+    fa_icon = "fab fa-linkedin-in fa-1x"
+    href = "https://www.linkedin.com/in/antoine-p/"
+  [[params.social]]
+    fa_icon = "fab fa-bluesky fa-1x"
+    href = "https://bsky.app/profile/darosior.bsky.social"
+  [[params.social]]
+    fa_icon = "fa-solid fa-envelope fa-1x"
+    href = "mailto:darosior@protonmail.com"
+  [[params.social]]
+    fa_icon = "fa-solid fa-key fa-1x"
+    href = "/0xE13FC145CD3F4304.asc"
