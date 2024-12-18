@@ -1,6 +1,7 @@
 +++
 date = 2024-12-18
 draft = false
+type = "blog"
 title = "On Soft Forks"
 description = "Some thoughts on Bitcoin soft forks, and Bitcoin Core, in light of the recent interest in introducing more expressiveness in Bitcoin Script."
 weight = 10
