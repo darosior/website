@@ -37,7 +37,7 @@ how amazing it is that millions across the world today coordinate around a fixed
 their money. This happened progressively as Bitcoin grew, and it's hard to see how it could be
 replicated today. We need to appreciate how fragile is this coordination of millions of people
 spread around the world, with different backgrounds, cultures, incentives, on something as political
-as the rules defining their money. Polically as much as technically, consensus is the most important
+as the rules defining their money. Politically as much as technically, consensus is the most important
 feature of Bitcoin and **we must be very careful in risking it**.
 
 A soft fork is an update to the consensus rules defining Bitcoin. It is technically a
@@ -49,7 +49,7 @@ making it sound less politically dangerous to some. It is not.
 
 In the past couple of years, a number of Bitcoin enthusiasts and developers published proposals to
 introduce new functionalities to the Bitcoin scripting system. A common complaint emerging from this
-group (both [formulated publicly](https://x.com/jamesob/status/1857049961235403101) or rapported to
+group (both [formulated publicly](https://x.com/jamesob/status/1857049961235403101) or reported to
 me in private discussions) was the lack of engagement of protocol developers, and especially of the
 fetishised Bitcoin Core maintainers, with their proposals. I have reasons to provide for the lack of
 engagement, but before that i want to address the Bitcoin Core attacks and criticims.
