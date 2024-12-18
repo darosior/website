@@ -21,12 +21,6 @@ copyright = " "
     title = "Posts"
     url = "/posts/"
     weight = -100
-  [[menu.main]]
-    identifier = "categories"
-    name = "Categories"
-    title = "Categories"
-    url = "/categories/"
-    weight = -90
 
 # Configuration Features
 [params]
