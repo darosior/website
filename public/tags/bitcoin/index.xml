@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bitcoin on Antoine Poinsot</title>
+    <link>http://localhost:1313/tags/bitcoin/</link>
+    <description>Recent content in Bitcoin on Antoine Poinsot</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright> </copyright>
+    <lastBuildDate>Wed, 18 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/bitcoin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>On Soft Forks</title>
+      <link>http://localhost:1313/posts/softforks/</link>
+      <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/softforks/</guid>
+      <description>&lt;p&gt;It appears many have different perspectives on soft forks than i do. Recent events and private discussions prompted me&#xA;to share my thoughts on the topic.&lt;/p&gt;&#xA;&lt;p&gt;Bitcoin&amp;rsquo;s value proposition is to be censorship-resistant money (some like to say &amp;ldquo;decentralised&amp;rdquo;).&#xA;And so far it largely succeeded: 15 years after its inception it&amp;rsquo;s still possible for anyone with occasional&#xA;access to the internet to receive, store and send value globally through the Bitcoin network without having&#xA;to ask anyone for permission. This is remarkable, and it would be a great achievement if we can keep it this&#xA;way for another 15 years. There seems however to be &lt;a href=&#34;https://transactionfee.info/charts/fees-per-day-btc&#34;&gt;little demand&lt;/a&gt;&#xA;for using Bitcoin (at least, as a medium of exchange). Or maybe just everybody is using Lightning and channel closures&#xA;are a thing of the past. Some believe many would like to use Bitcoin but are simply unable to, and this seems to be one&#xA;motivation behind the recent soft fork excitement. Another common, presumptuous, explanation is that actually&#xA;a lot of people need Bitcoin, but &lt;em&gt;they don&amp;rsquo;t realise it&lt;/em&gt;. It&amp;rsquo;s necessary for the western bitcoiner, well educated&#xA;in the Bitcoin cult, to come and coinsplain them why they need to accept Bitcoin in their heart despite them having&#xA;already made the choice it was not the best option for them. We should note however that a low usage of Bitcoin can be&#xA;viewed as a good thing: the contrary may imply large scale economic repression is happening.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
