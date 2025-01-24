@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright> </copyright>
-    <lastBuildDate>Wed, 18 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://antoinep.com/tags/bitcoin-core/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bitcoin Core project direction</title>
+      <link>https://antoinep.com/posts/core_project_direction/</link>
+      <pubDate>Fri, 24 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://antoinep.com/posts/core_project_direction/</guid>
+      <description>&lt;p&gt;What should be the mid to long term goals of the project?&lt;/p&gt;&#xA;&lt;p&gt;This is something i&amp;rsquo;ve been thinking about and discussing with others for a while. I don&amp;rsquo;t quite&#xA;have finished thoughts about this, but i think it&amp;rsquo;s important to discuss. It&amp;rsquo;s also a good time as&#xA;most of us will meet in person soon.&lt;/p&gt;&#xA;&lt;p&gt;A lot of decisions we make now about what features should go in, which should be prioritized, what&#xA;to review, what is valuable to start working on, are dependent on what we expect to happen in the&#xA;future. However, we currently cannot have any expectations about what will or will not happen in the&#xA;future. This significantly hinders our ability to make progress.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>On Soft Forks</title>
       <link>https://antoinep.com/posts/softforks/</link>
