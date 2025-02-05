@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+    <title>Antoine Poinsot - Stating the obvious</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A proposition of a scope for the Bitcoin Core project" />
+
+    <meta property="og:url" content="https://antoinep.com/posts/stating_the_obvious/">
+  <meta property="og:site_name" content="Antoine Poinsot">
+  <meta property="og:title" content="Stating the obvious">
+  <meta property="og:description" content="A proposition of a scope for the Bitcoin Core project">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-02-05T00:00:00+00:00">
+    <meta property="article:tag" content="Bitcoin">
+    <meta property="article:tag" content="Bitcoin Core">
+
+    <meta name="og:image" content="https://antoinep.com/images/kebab_bordeaux.jpg" /> 
+
+    
+    
+    
+    <link rel="stylesheet" href="../../css/theme.min.css">
+
+    
+    
+    
+    
+    <link rel="stylesheet" href="../../css/custom.min.css">
+    
+
+    
+</head>
+<body>
+        <div id="content" class="mx-auto"><header class="container mt-sm-5 mt-4 mb-4 mt-xs-1">
+    <div class="row">
+        
+        <div class="col-sm-4 col-12 text-sm-right text-center pt-sm-4">
+            <a href="../../" class="text-decoration-none">
+                <img id="home-image" class="rounded-circle"
+                    
+                        
+                            src="../../images/kebab_bordeaux.jpg"
+                        
+                    
+                />
+            </a>
+        </div>
+        <div class="col-sm-8 col-12 text-sm-left text-center">
+        
+            <h2 class="m-0 mb-2 mt-4">
+                <a href="../../" class="text-decoration-none">
+                    
+                        Antoine Poinsot
+                    
+                </a>
+            </h2>
+            <p class="text-muted mb-1">
+                
+                    590B 7292 695A FFA5 B672 CBB2 E13F C145 CD3F 4304
+                
+            </p>
+            <ul id="nav-links" class="list-inline mb-2">
+                
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../" title="About">About</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../posts/" title="Posts">Posts</a>
+                    </li>
+                
+            </ul>
+            <ul id="nav-social" class="list-inline">
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://twitter.com/darosior" target="_blank">
+                            <i class="fab fa-twitter fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="http://github.com/darosior" target="_blank">
+                            <i class="fab fa-github fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://www.linkedin.com/in/antoine-p/" target="_blank">
+                            <i class="fab fa-linkedin-in fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://bsky.app/profile/darosior.bsky.social" target="_blank">
+                            <i class="fab fa-bluesky fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="mailto:darosior@protonmail.com" target="_blank">
+                            <i class="fa-solid fa-envelope fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="../../0xE13FC145CD3F4304.asc" target="_blank">
+                            <i class="fa-solid fa-key fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    <hr />
+</header>
+<div class="container">
+    <div class="pl-sm-4 ml-sm-5">
+        <p>Following <a href="https://antoinep.com/posts/core_project_direction">my post</a> from a couple weeks ago, i
+set out to answer my own question.</p>
+<p>How do we define a project scope? An interesting exercise is to consider what should be the bounds if
+we had near infinite resources. Should there be a limit in the scope of the project then? Surely you
+can think of examples of features we&rsquo;d never want to include in Bitcoin Core (for instance a general
+purpose text editor, a browser, a recursive DNS resolver, ..).  But then where do we draw the line?
+It&rsquo;s tempting to say &ldquo;at non-Bitcoin stuff&rdquo;, but this is only begging the question. A message
+encryption feature (or even <code>signmessage</code> for this matter) can be argued to be Bitcoin-related as
+much as a DNS resolver.</p>
+<p>I think in this case the scope should be &ldquo;whatever is demanded by users, subject to veto by
+contributors&rdquo;. The first part is simply because what is useful to Bitcoin Core users may vary so
+widely across usage types and time that it&rsquo;s hard to draw a non-arbitrary line. The second part is
+to reflect that developers won&rsquo;t implement features they believe to be harmful or dumb despite there
+being user demand (think colored coins, inscriptions, altcoin client, ..). Near infinite resources
+means we can assume only those users interested in a feature set bear its associated costs (larger
+binary, additional dependencies, etc). Of course it also means that implementing, reviewing and
+maintaining a new feature does not materially affect the ability of preserving the quality of the
+rest of the software.</p>
+<p>Unfortunately in real life we do not have near infinite resources. Work on a new feature necessarily
+presents an opportunity cost: this development and review time could have been spent elsewhere. In
+addition it presents future costs: it will have to be maintained, and may interact with new features
+being introduced later on. Future work on test infratructure, modernizing the codebase, etc.. now
+will have to deal with it. This is <em>not</em> an abstract concern. It is also made worse by the
+incentives surrounding the contribution dynamic. Absent a project scope, any feature that receives
+enough review could make it in. The authors get the benefit of getting their feature merged into
+Bitcoin Core, and the maintainers and future contributors pay the associated costs.</p>
+<p>These costs mean we need to make tradeoffs. We cannot both keep piling more code, more features AND
+also maintain a high bar for quality. High bar for quality meaning the code we ship received
+significant scrutiny, testing and that we are actively working to find bugs (especially
+<a href="https://bitcoincore.org/en/security-advisories">security-critical ones</a>). Does this mean we should
+allocate all our resources toward improving testing and review? Absolutely not! Some developments
+are well worth the risk and maintenance cost. And software costs/risks need to be balanced against
+network and industry wide costs, risks and opportunities. That is, a Bitcoin Core vs Bitcoin
+tradeoff. For instance it&rsquo;s worth it for Bitcoin Core to bear the complexity introduced by <a href="https://github.com/bitcoin/bitcoin/issues/27463">package
+relay</a> because it significantly improves the
+robustness of second layer protocols used by a large number of Bitcoin users. Another example is
+compact block relay. Does <a href="https://bitcoincore.org/en/2024/10/08/disclose-blocktxn-crash/"><code>CVE-2024-35202</code></a>
+means Bitcoin Core should not have implemented this protocol upgrade? Absolutely not! Implementing
+mitigations against fundamental centralization pressures in Bitcoin literally is at the core of
+Bitcoin Core&rsquo;s mission.</p>
+<p>But what is Bitcoin Core&rsquo;s mission? It seems obvious to say that block relay should be a priority
+for the Bitcoin Core project. But at what cost? And how do you generalize that? Here again, the
+answer is the vague truism &ldquo;Bitcoin Core should prioritize in function of what its users value
+most&rdquo;. But different users are going to value different things. Some will prefer to have new indexes
+to query mempool data, others will want a more efficient wallet that support higher loads, and
+others yet would prefer to have Assumeutxo implemented in the GUI. And from this it&rsquo;s easy to shrug
+and conclude &ldquo;there is no good way to prioritize one type of user over another, people will just
+work on what they want&rdquo;. But this is sticking the head in the sand to avoid seeing the issue and
+this is missing a critical distinction in the group of Bitcoin Core users.</p>
+<p>For technical and historical reasons, Bitcoin Core is the only reasonable full node implementation
+for all Bitcoin users to run. Re-implementations of Bitcoin face significant technical challenges
+and appear to be doomed to have consensus bugs. Forks of Bitcoin Core, while more reasonable to run
+from a consensus bugs perspective, have nowhere near the level of quality assurance Bitcoin Core
+has. But Bitcoin Core does not hold a monopoly, and its advantage can erode. A large share of users
+turning to other implementations would be a major setback for the project, and, given the state of
+available alternatives at the moment, one for the industry at large too.</p>
+<p>When you consider that Bitcoin Core&rsquo;s userbase is indirectly all Bitcoin users, how to prioritise
+development becomes quite clear. Bitcoin Core should be a robust backbone for the Bitcoin network,
+balancing between securing the Bitcoin Core software and implementing new features to strengthen and
+improve the Bitcoin network. I know this feels like stating the obvious, but sometimes it appears to
+be necessary.</p>
+
+    </div>
+
+    
+
+            </div>
+        </div><footer class="text-center pb-1">
+    <small class="text-muted">
+        
+             
+        
+        <br>
+        Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        and <a href="https://github.com/austingebauer/devise" target="_blank">Devise</a>
+    </small>
+</footer>
+</body>
+</html>

@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright> </copyright>
-    <lastBuildDate>Fri, 24 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 05 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://antoinep.com/tags/bitcoin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stating the obvious</title>
+      <link>https://antoinep.com/posts/stating_the_obvious/</link>
+      <pubDate>Wed, 05 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://antoinep.com/posts/stating_the_obvious/</guid>
+      <description>&lt;p&gt;Following &lt;a href=&#34;https://antoinep.com/posts/core_project_direction&#34;&gt;my post&lt;/a&gt; from a couple weeks ago, i&#xA;set out to answer my own question.&lt;/p&gt;&#xA;&lt;p&gt;How do we define a project scope? An interesting exercise is to consider what should be the bounds if&#xA;we had near infinite resources. Should there be a limit in the scope of the project then? Surely you&#xA;can think of examples of features we&amp;rsquo;d never want to include in Bitcoin Core (for instance a general&#xA;purpose text editor, a browser, a recursive DNS resolver, ..).  But then where do we draw the line?&#xA;It&amp;rsquo;s tempting to say &amp;ldquo;at non-Bitcoin stuff&amp;rdquo;, but this is only begging the question. A message&#xA;encryption feature (or even &lt;code&gt;signmessage&lt;/code&gt; for this matter) can be argued to be Bitcoin-related as&#xA;much as a DNS resolver.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Bitcoin Core project direction</title>
       <link>https://antoinep.com/posts/core_project_direction/</link>
