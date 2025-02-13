@@ -65,7 +65,7 @@ reasonable for the wallet to have a lower review bar than the node, and for the 
 one than the wallet, as long as it's advertized to our users. This could enable these projects to
 iterate faster and make more progress. Surely, being in their own project shielded from the
 [animosity of other
-contributors](http://irc-logger.int.chaincode.com/bitcoin-core-dev/2025-01-30#1086218) and with the
+contributors](https://bitcoin-irc.chaincode.com/bitcoin-core-dev/2025-01-30#1086218) and with the
 ability to make progress could make working on these project more fun and attract new contributors.
 A larger contributor base could in turn lead to improved software quality and increased capacity to
 catch up with features.
