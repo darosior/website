@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+    <title>Antoine Poinsot - Bitcoin Core scope, concretely</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A route to re-focus the main Bitcoin Core repo on its core mission." />
+
+    <meta property="og:url" content="https://antoinep.com/posts/bitcoin_core_scope/">
+  <meta property="og:site_name" content="Antoine Poinsot">
+  <meta property="og:title" content="Bitcoin Core scope, concretely">
+  <meta property="og:description" content="A route to re-focus the main Bitcoin Core repo on its core mission.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-13T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-02-13T00:00:00+00:00">
+    <meta property="article:tag" content="Bitcoin">
+    <meta property="article:tag" content="Bitcoin Core">
+
+    <meta name="og:image" content="https://antoinep.com/images/kebab_bordeaux.jpg" /> 
+
+    
+    
+    
+    <link rel="stylesheet" href="../../css/theme.min.css">
+
+    
+    
+    
+    
+    <link rel="stylesheet" href="../../css/custom.min.css">
+    
+
+    
+</head>
+<body>
+        <div id="content" class="mx-auto"><header class="container mt-sm-5 mt-4 mb-4 mt-xs-1">
+    <div class="row">
+        
+        <div class="col-sm-4 col-12 text-sm-right text-center pt-sm-4">
+            <a href="../../" class="text-decoration-none">
+                <img id="home-image" class="rounded-circle"
+                    
+                        
+                            src="../../images/kebab_bordeaux.jpg"
+                        
+                    
+                />
+            </a>
+        </div>
+        <div class="col-sm-8 col-12 text-sm-left text-center">
+        
+            <h2 class="m-0 mb-2 mt-4">
+                <a href="../../" class="text-decoration-none">
+                    
+                        Antoine Poinsot
+                    
+                </a>
+            </h2>
+            <p class="text-muted mb-1">
+                
+                    590B 7292 695A FFA5 B672 CBB2 E13F C145 CD3F 4304
+                
+            </p>
+            <ul id="nav-links" class="list-inline mb-2">
+                
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../" title="About">About</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../posts/" title="Posts">Posts</a>
+                    </li>
+                
+            </ul>
+            <ul id="nav-social" class="list-inline">
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://twitter.com/darosior" target="_blank">
+                            <i class="fab fa-twitter fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="http://github.com/darosior" target="_blank">
+                            <i class="fab fa-github fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://www.linkedin.com/in/antoine-p/" target="_blank">
+                            <i class="fab fa-linkedin-in fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://bsky.app/profile/darosior.bsky.social" target="_blank">
+                            <i class="fab fa-bluesky fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="mailto:darosior@protonmail.com" target="_blank">
+                            <i class="fa-solid fa-envelope fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="../../0xE13FC145CD3F4304.asc" target="_blank">
+                            <i class="fa-solid fa-key fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    <hr />
+</header>
+<div class="container">
+    <div class="pl-sm-4 ml-sm-5">
+        <p>In my last two posts i presented Bitcoin Core&rsquo;s <a href="https://antoinep.com/posts/core_project_direction">prioritisation
+issues</a> and then <a href="https://antoinep.com/posts/stating_the_obvious">provided an
+answer</a> to what the scope and goals of the Bitcoin
+Core project should be. Now what?</p>
+<p>Well, it&rsquo;s not like we are starting a new project from scratch where we could just begin enforcing
+the scope as we develop it. We are fixing things in flight, with users and developers that depend on
+or care about existing modules that would be out of scope. Although developers working in these
+areas should realize they impose a non-trivial cost on all the other contributors that don&rsquo;t believe
+they should be a priority, just throwing shit at each other is not going to move things forward.
+Engaging with &ldquo;just delete the GUI&rdquo; or &ldquo;just delete the wallet&rdquo; is a non-starter.</p>
+<p>On the other hand not doing anything is making a choice by default, the choice of continuous burden
+on everyone else and reduced overall software quality.  This needs to be addressed if we want to
+keep Bitcoin Core the go-to full node client for Bitcoin users, but also to keep critical
+contributors motivated to continue working on the project.</p>
+<p>The multiprocess project presents an opportunity in this regard. Separate <code>bitcoin-node</code>,
+<code>bitcoin-wallet</code> and <code>bitcoin-gui</code> binaries communicating through well-defined interfaces open the
+door to splitting the current project into 3. The contributors at
+<a href="https://github.com/bitcoin/bitcoin">github.com/bitcoin/bitcoin</a> would focus on the Bitcoin Core
+node and release a <code>bitcoin-node</code> program, exposing JSONRPC and IPC interfaces. The contributors
+at <a href="github.com/bitcoin-core/wallet">github.com/bitcoin-core/wallet</a> would work on the
+<code>bitcoin-wallet</code> process. The Bitcoin Core wallet releases would contain both the wallet and node
+processes, presumably with a wrapper to make it transparent to users. This project would release the
+equivalent of today&rsquo;s <code>bitcoind</code>. Finally, the contributors at
+<a href="https://github.com/bitcoin-core/gui">github.com/bitcoin-core/gui</a> would develop and release the
+<code>bitcoin-gui</code> program, which would ship with the node and wallet.  Similarly to the wallet it would
+presumably ship with a wrapper to abstract for the user the technicality of using multiple
+processes. Bitcoin Core the project would still announce and host the node, wallet and GUI releases
+at <a href="https://bitcoincore.org">https://bitcoincore.org</a>.</p>
+<p>This approach would make it so Bitcoin Core still releases a wallet and a GUI while still reaping
+the benefit that developments in these areas don&rsquo;t impact the workflow of contributors to the node
+project anymore. Of course, there is no free lunch. The maintenance, fix and update burden shifting
+out of the node contributors either means it will shift on to the contributors of the wallet and GUI
+project or that it won&rsquo;t happen at all. This is arguably the entire point: we are currently <a href="https://antoinep.com/posts/core_project_direction">trading
+off</a> quality in the node for maintainance of
+these areas.  I argue <a href="https://antoinep.com/posts/stating_the_obvious">this is backward</a>.</p>
+<p>This could also be an opportunity for the wallet and GUI projects. There&rsquo;s been little interest in
+contributing to the Bitcoin Core wallet in the past years, despite there being tremendous interest
+in working on Bitcoin wallets in general. For instance
+<a href="https://github.com/rust-bitcoin"><code>rust-bitcoin</code></a> has never made so much progress, and
+<a href="https://github.com/bitcoindevkit/bdk">BDK</a> is a major success <a href="https://bitcoindevkit.org/adoption/all">adopted by dozens of
+projects</a> with probably millions of users altogether. They
+have a larger feature set, with the Bitcoin Core wallet still struggling to catch up even years
+after a feature has been largely adopted by the industry<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. I count at least two dozen active
+contributors across these two projects. Regarding the GUI, it&rsquo;s hardly being developed at all
+anymore, with only 29 PRs merged in the past year<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>. There&rsquo;s been talk of revamping it forever
+(<a href="https://github.com/BitcoinDesign/Bitcoin-Core-App">1</a>,
+<a href="https://github.com/bitcoin-core/gui-qml">2</a>) but it has never really materialized. It would be
+reasonable for the wallet to have a lower review bar than the node, and for the GUI to have a lower
+one than the wallet, as long as it&rsquo;s advertized to our users. This could enable these projects to
+iterate faster and make more progress. Surely, being in their own project shielded from the
+<a href="http://irc-logger.int.chaincode.com/bitcoin-core-dev/2025-01-30#1086218">animosity of other
+contributors</a> and with the
+ability to make progress could make working on these project more fun and attract new contributors.
+A larger contributor base could in turn lead to improved software quality and increased capacity to
+catch up with features.</p>
+<p>Doing this raises a number of questions. What branch of the node would the wallet and GUI projects
+track? How do you split <code>depends</code>? What about the Guix builds? The shared code in <code>src/common</code>,
+<code>src/util</code>, <code>src/crypto</code>, in tests, etc? There may be non-trivial and non-ideal choices to make in
+the process but we should not overlook the benefits of this approach: we re-focus the main project
+toward its critical mission and we keep the wallet and GUI, possibly unleashing more progress in
+these areas.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>See for instance PSBT v2, a BIP that Ava authored and is <a href="https://github.com/bitcoin/bitcoin/pull/21283">still not merged into Bitcoin Core
+after 4 years</a> due to lack of review. Meanwhile
+<a href="https://groups.google.com/g/bitcoindev/c/OPx9qvmr5Nc/m/8mp8VHjQBQAJ">Ledger started using it 4 years
+ago</a> and it was <a href="https://github.com/ElementsProject/libwally-core/pull/330">merged in
+libwally</a> 2.5 years ago then <a href="https://github.com/ElementsProject/lightning/pull/5898">adopted by
+Core-Lightning</a> 2 years ago.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Running this command on February 12th 2025: <code>git log --merges --grep &quot;bitcoin-core/gui#&quot; --oneline --since=2024-02-12 |wc -l</code>.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+    </div>
+
+    
+
+            </div>
+        </div><footer class="text-center pb-1">
+    <small class="text-muted">
+        
+             
+        
+        <br>
+        Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        and <a href="https://github.com/austingebauer/devise" target="_blank">Devise</a>
+    </small>
+</footer>
+</body>
+</html>

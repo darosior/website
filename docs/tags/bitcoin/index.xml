@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright> </copyright>
-    <lastBuildDate>Wed, 05 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://antoinep.com/tags/bitcoin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bitcoin Core scope, concretely</title>
+      <link>https://antoinep.com/posts/bitcoin_core_scope/</link>
+      <pubDate>Thu, 13 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://antoinep.com/posts/bitcoin_core_scope/</guid>
+      <description>&lt;p&gt;In my last two posts i presented Bitcoin Core&amp;rsquo;s &lt;a href=&#34;https://antoinep.com/posts/core_project_direction&#34;&gt;prioritisation&#xA;issues&lt;/a&gt; and then &lt;a href=&#34;https://antoinep.com/posts/stating_the_obvious&#34;&gt;provided an&#xA;answer&lt;/a&gt; to what the scope and goals of the Bitcoin&#xA;Core project should be. Now what?&lt;/p&gt;&#xA;&lt;p&gt;Well, it&amp;rsquo;s not like we are starting a new project from scratch where we could just begin enforcing&#xA;the scope as we develop it. We are fixing things in flight, with users and developers that depend on&#xA;or care about existing modules that would be out of scope. Although developers working in these&#xA;areas should realize they impose a non-trivial cost on all the other contributors that don&amp;rsquo;t believe&#xA;they should be a priority, just throwing shit at each other is not going to move things forward.&#xA;Engaging with &amp;ldquo;just delete the GUI&amp;rdquo; or &amp;ldquo;just delete the wallet&amp;rdquo; is a non-starter.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Stating the obvious</title>
       <link>https://antoinep.com/posts/stating_the_obvious/</link>
