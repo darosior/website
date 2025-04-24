@@ -7,8 +7,29 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright> </copyright>
-    <lastBuildDate>Thu, 13 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 24 Apr 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://antoinep.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Infosec</title>
+      <link>https://antoinep.com/tags/infosec/</link>
+      <pubDate>Thu, 24 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://antoinep.com/tags/infosec/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Miniscript</title>
+      <link>https://antoinep.com/tags/miniscript/</link>
+      <pubDate>Thu, 24 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://antoinep.com/tags/miniscript/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rust-Miniscript</title>
+      <link>https://antoinep.com/tags/rust-miniscript/</link>
+      <pubDate>Thu, 24 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://antoinep.com/tags/rust-miniscript/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Bitcoin</title>
       <link>https://antoinep.com/tags/bitcoin/</link>

@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright> </copyright>
-    <lastBuildDate>Thu, 13 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 24 Apr 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://antoinep.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CVE-2025-43707: out-of-bounds read in the Rust-Miniscript satisfier</title>
+      <link>https://antoinep.com/posts/cve-2025-43707/</link>
+      <pubDate>Thu, 24 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://antoinep.com/posts/cve-2025-43707/</guid>
+      <description>&lt;p&gt;On March 25, @Pythcoiner from the &lt;a href=&#34;https://wizardsardine.com&#34;&gt;Wizardsardine&lt;/a&gt; team contacted me about&#xA;a crash bug in &lt;a href=&#34;https://github.com/wizardsardine/liana&#34;&gt;Liana&lt;/a&gt; they had identified as coming from the&#xA;&lt;a href=&#34;https://github.com/rust-bitcoin/rust-miniscript&#34;&gt;&lt;code&gt;rust-miniscript&lt;/code&gt;&lt;/a&gt; dependency. After investigating&#xA;i identified the crash as coming from the library&amp;rsquo;s Miniscript satisfier, and found it could be&#xA;triggered by an attacker.&lt;/p&gt;&#xA;&lt;p&gt;The impact of this vulnerability is that an attacker could make a victim crash by getting them to&#xA;satisfy a transaction spending a specially-crafted descriptor. In simpler terms, a victim could&#xA;crash when &amp;ldquo;signing&amp;rdquo; a transaction that spends from a specific &amp;ldquo;wallet&amp;rdquo;. This is not critical (but&#xA;still pretty annoying!) if you consider the victim as being a software running locally. But these&#xA;are pretty common operations and it would not be surprising that an application running on a server&#xA;publicly exposes them (for instance through &lt;a href=&#34;https://bitcoindevkit.org/adoption/all&#34;&gt;BDK&lt;/a&gt;). There,&#xA;an attacker exploiting this bug could prevent all users from accessing the service.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Bitcoin Core scope, concretely</title>
       <link>https://antoinep.com/posts/bitcoin_core_scope/</link>
