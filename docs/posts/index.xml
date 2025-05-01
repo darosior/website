@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright> </copyright>
-    <lastBuildDate>Thu, 24 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://antoinep.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>On relay policy and recent OP_RETURN drama</title>
+      <link>https://antoinep.com/posts/relay_policy_drama/</link>
+      <pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://antoinep.com/posts/relay_policy_drama/</guid>
+      <description>&lt;p&gt;I recently &lt;a href=&#34;https://gnusha.org/pi/bitcoindev/rhfyCHr4RfaEalbfGejVdolYCVWIyf84PT2062DQbs5-eU8BPYty5sGyvI3hKeRZQtVC7rn_ugjUWFnWCymz9e9Chbn7FjWJePllFhZRKYk=@protonmail.com&#34;&gt;emailed&lt;/a&gt; the Bitcoin development mailing list about lifting the restrictions&#xA;on the use of &lt;code&gt;OP_RETURN&lt;/code&gt; outputs in standard transactions. This triggered yet another shitstorm,&#xA;which prompted me to lay down my thoughts on the topic as a blog post to minimize the time wasted&#xA;arguing in parts on Twitter.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-relay-policy-and-why-is-it-necessary&#34;&gt;What is relay policy and why is it necessary?&lt;/h2&gt;&#xA;&lt;p&gt;Policy is extremely broad and refers to all the rules observed by the software when interacting with&#xA;the Bitcoin P2P network. Examples include the organization of requests emitted to peers, delays in&#xA;message processing, refusing to process blocks with a timestamp more than 2 hours in the future&#xA;(compared to the system time), or refusing to process certain types of transactions. The object of&#xA;recent drama is the latter. I will use the nomenclature from my &lt;a href=&#34;https://bitcoin.stackexchange.com/a/120271/101498&#34;&gt;Bitcoin Stackexchange answer&lt;/a&gt; on the topic and refer to the rules dictating the format of transactions in isolation as&#xA;&amp;ldquo;transaction standardness&amp;rdquo;, which is a subset of &amp;ldquo;mempool policy&amp;rdquo;, itself considered a subset of&#xA;&amp;ldquo;transaction relay policy&amp;rdquo;, finally a subset of &amp;ldquo;relay policy&amp;rdquo;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>CVE-2025-43707: out-of-bounds read in the Rust-Miniscript satisfier</title>
       <link>https://antoinep.com/posts/cve-2025-43707/</link>

@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+    <title>Antoine Poinsot - On relay policy and recent OP_RETURN drama</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Relaxing restrictions on OP_RETURN is fine. Bitcoiners need to stop being so gullible." />
+
+    <meta property="og:url" content="https://antoinep.com/posts/relay_policy_drama/">
+  <meta property="og:site_name" content="Antoine Poinsot">
+  <meta property="og:title" content="On relay policy and recent OP_RETURN drama">
+  <meta property="og:description" content="Relaxing restrictions on OP_RETURN is fine. Bitcoiners need to stop being so gullible.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-05-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-05-01T00:00:00+00:00">
+    <meta property="article:tag" content="Bitcoin">
+    <meta property="article:tag" content="Bitcoin Core">
+    <meta property="article:tag" content="Policy">
+
+    <meta name="og:image" content="https://antoinep.com/images/kebab_bordeaux.jpg" /> 
+
+    
+    
+    
+    <link rel="stylesheet" href="../../css/theme.min.css">
+
+    
+    
+    
+    
+    <link rel="stylesheet" href="../../css/custom.min.css">
+    
+
+    
+</head>
+<body>
+        <div id="content" class="mx-auto"><header class="container mt-sm-5 mt-4 mb-4 mt-xs-1">
+    <div class="row">
+        
+        <div class="col-sm-4 col-12 text-sm-right text-center pt-sm-4">
+            <a href="../../" class="text-decoration-none">
+                <img id="home-image" class="rounded-circle"
+                    
+                        
+                            src="../../images/kebab_bordeaux.jpg"
+                        
+                    
+                />
+            </a>
+        </div>
+        <div class="col-sm-8 col-12 text-sm-left text-center">
+        
+            <h2 class="m-0 mb-2 mt-4">
+                <a href="../../" class="text-decoration-none">
+                    
+                        Antoine Poinsot
+                    
+                </a>
+            </h2>
+            <p class="text-muted mb-1">
+                
+                    590B 7292 695A FFA5 B672 CBB2 E13F C145 CD3F 4304
+                
+            </p>
+            <ul id="nav-links" class="list-inline mb-2">
+                
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../" title="About">About</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../posts/" title="Posts">Posts</a>
+                    </li>
+                
+            </ul>
+            <ul id="nav-social" class="list-inline">
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://twitter.com/darosior" target="_blank">
+                            <i class="fab fa-twitter fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="http://github.com/darosior" target="_blank">
+                            <i class="fab fa-github fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://www.linkedin.com/in/antoine-p/" target="_blank">
+                            <i class="fab fa-linkedin-in fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://bsky.app/profile/darosior.bsky.social" target="_blank">
+                            <i class="fab fa-bluesky fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="mailto:darosior@protonmail.com" target="_blank">
+                            <i class="fa-solid fa-envelope fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="../../0xE13FC145CD3F4304.asc" target="_blank">
+                            <i class="fa-solid fa-key fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    <hr />
+</header>
+<div class="container">
+    <div class="pl-sm-4 ml-sm-5">
+        <p>I recently <a href="https://gnusha.org/pi/bitcoindev/rhfyCHr4RfaEalbfGejVdolYCVWIyf84PT2062DQbs5-eU8BPYty5sGyvI3hKeRZQtVC7rn_ugjUWFnWCymz9e9Chbn7FjWJePllFhZRKYk=@protonmail.com">emailed</a> the Bitcoin development mailing list about lifting the restrictions
+on the use of <code>OP_RETURN</code> outputs in standard transactions. This triggered yet another shitstorm,
+which prompted me to lay down my thoughts on the topic as a blog post to minimize the time wasted
+arguing in parts on Twitter.</p>
+<h2 id="what-is-relay-policy-and-why-is-it-necessary">What is relay policy and why is it necessary?</h2>
+<p>Policy is extremely broad and refers to all the rules observed by the software when interacting with
+the Bitcoin P2P network. Examples include the organization of requests emitted to peers, delays in
+message processing, refusing to process blocks with a timestamp more than 2 hours in the future
+(compared to the system time), or refusing to process certain types of transactions. The object of
+recent drama is the latter. I will use the nomenclature from my <a href="https://bitcoin.stackexchange.com/a/120271/101498">Bitcoin Stackexchange answer</a> on the topic and refer to the rules dictating the format of transactions in isolation as
+&ldquo;transaction standardness&rdquo;, which is a subset of &ldquo;mempool policy&rdquo;, itself considered a subset of
+&ldquo;transaction relay policy&rdquo;, finally a subset of &ldquo;relay policy&rdquo;.</p>
+<p>Standardness rules exist for three main reasons. The first is as DoS protection. Your peers on the
+P2P network are not identified and some transactions are more expensive than others to process. An
+asymmetry between the cost of sending you an unconfirmed transaction (which is very small) and the
+cost for you to process it creates a DoS vector. Another reason for standardness rules is to provide
+upgrade hooks for soft forks. Invalidating a type of transactions in a soft fork that was already
+non-standard for a while gives more guarantees that a non-upgraded miner won&rsquo;t include a
+newly-invalid transaction in a block, making soft forks significantly safer to roll out. Finally,
+standardness rules have also been used as a way to nudge behaviour toward a less harmful approach,
+or to mildly deter certain activities. For instance by standardizing <code>OP_RETURN</code> outputs, or
+discouraging data storage back when <a href="https://gnusha.org/pi/bitcoindev/QMywWcEgJgWmiQzASR17Dt42oLGgG-t3bkf0vzGemDVNVnvVaD64eM34nOQHlBLv8nDmeBEyTXvBUkM2hZEfjwMTrzzoLl1_62MYPz8ZThs=@wuille.net">blocks were not full</a>.</p>
+<h2 id="what-are-the-current-standardness-rules">What are the current standardness rules?</h2>
+<p>An unconfirmed transaction will be dropped by Bitcoin Core if:</p>
+<ul>
+<li>it&rsquo;s invalid by consensus;</li>
+<li>it is timelocked to any future block but the next block;</li>
+<li>its version is anything but 1, 2 or 3;</li>
+<li>it&rsquo;s larger than 400k weight units;</li>
+<li>it&rsquo;s smaller without witness than 65 bytes;</li>
+<li>any of its inputs has a too large or non-pushonly scriptSig;</li>
+<li>any of its inputs spends a scriptpubkey that does not match any script template from a shortlist;</li>
+<li>any of its inputs spends a legacy P2SH scriptpubkey which contains too many signature operations;</li>
+<li>any of its inputs spends a Segwit P2WSH scriptpubkey which contains a too large witness script;</li>
+<li>any of its inputs spends a Taproot output with a witness stack which contains an annex;</li>
+<li>any of its inputs&rsquo; witness stacks contain a too large element;</li>
+<li>any of its outputs has a scriptPubKey which does not match any script template from a shortlist;</li>
+<li>if more than one of its outputs matches the <code>OP_RETURN</code> (&ldquo;datacarrier&rdquo;) template;</li>
+<li>any of its outputs has a below-dust value;</li>
+<li>it requires validating too many signatures overall;</li>
+</ul>
+<h2 id="what-modification-is-proposed-why">What modification is proposed? Why?</h2>
+<p>I recently suggested lifting the restrictions on the usage of <code>OP_RETURN</code> outputs in standard
+transactions. &ldquo;<code>OP_RETURN</code>s&rdquo; are a provably-unspendable type of outputs that were made standard in
+response to the usage of regular output types to store data in the Bitcoin blockchain (that is,
+non-transaction data). The goal was to provide a less harmful but as convenient method to store the
+data, that good actors could pick up. This was <a href="https://transactionfee.info/charts/output-opreturn">successful</a>. Along with the
+standardization of this new output type, the size of the associated data was limited as a mild
+deterrent against storing too much data.</p>
+<p>Mild deterrent because these are otherwise valid transactions, that the node would accept as part of
+a block. Most of the public transaction relay network enforcing a policy of filtering too large
+<code>OP_RETURN</code> outputs could deter isolated demand for those, or nudge developers to design their
+applications to take these limitations into account. But it is <strong>ineffective</strong> to prevent this type
+of transactions from being used if there is significant demand for them. Worse, treating a widely
+used type of transaction as non-standard is actually <strong>harmful</strong> from both the perspective of a node
+runner (blinding them to part of the network activity) and that of the network at large (hurting
+optimistic block reconstruction).</p>
+<p>For a long time, <code>OP_RETURN</code>s remained the primary mean for people to store a small amount of data
+onchain. A few years ago people started leveraging the Segwit discount and storing data into an
+input&rsquo;s witness instead. This let them store more data at a lower cost. A trend started around <a href="https://docs.ordinals.com/inscriptions.html">this
+type</a> of transactions, which became in high demand. In fact so much so that it
+became the main driver of block space demand for a while. Although this approach already permitted
+to store ~5000 times more data in a single standard transaction, the demand for inscription
+incentivized people to build <a href="https://slipstream.mara.com">private bridges</a> to miners to bypass other standardness
+limits such as the maximum transaction size in order to store even more data.</p>
+<p>We are now in a situation where Bitcoin Core&rsquo;s restriction on the size of <code>OP_RETURN</code>s by
+standardness is not binding anymore. One can store ~5000 times as much data in a standard
+transaction by stuffing its witness. Private bridges to miners and alternative public relay networks
+were built that allow to store ~50k times as more data in a single transaction. In fact these
+alternative relays allow bypassing several of Bitcoin Core&rsquo;s standardness rules, including the
+maximum size of <code>OP_RETURN</code>s!</p>
+<p>While these restrictions are not binding anymore for whoever wants to store data onchain, they still
+unnecessarily restrict constructions with time-sensitive transactions. Protocol designers want those
+transactions to be standard for a good reason: they don&rsquo;t want to rely on private bridges for
+security-critical transaction broadcast. Those transactions need to relay properly on the more
+censorship resistant public network. It was recently brought to my attention that <a href="https://citrea.xyz/">Citrea</a>
+faced this situation with their <a href="https://github.com/chainwayxyz/clementine">Clementine bridge</a>. In their construction, a watchtower
+challenge transaction needs to both pass on 144 bytes of data and be confirmed as soon as possible.
+Since they are restricted to a single 80 bytes <code>OP_RETURN</code> output by Bitcoin Core standardness, they
+use two unspendable Taproot outputs to include the other 64 bytes of data. These Taproot outputs
+will remain unspent forever, and every single full node will have to keep them into its UTxO set
+forever.</p>
+<p>In the specific case of Citrea, it&rsquo;s unlikely that many of those outputs would end up onchain. But
+it illustrates a severe issue in Bitcoin Core&rsquo;s standardness rules. Not only they do not provide
+binding constraints to prevent using the block chain to store arbitrary data, they also incentivize
+more harmful ways of storing data! This is why i proposed to drop those restrictions.</p>
+<h2 id="what-about-optionality-do-you-hate-freedom">What about optionality? Do you hate freedom?</h2>
+<p>Peter Todd&rsquo;s <a href="https://github.com/bitcoin/bitcoin/pull/32359">pull request</a> to drop these restrictions also removes the accompanying
+startup options (<code>-datacarrier</code> and <code>-datacarriersize</code>). This was quickly picked up as a narrative
+by trolls in the thread as well as on social media: not only does Bitcoin Core changes the default,
+it takes its users hostage by preventing them to turn it back on!</p>
+<p>This is obviously nonsense when you think about it for a minute. These options are one of the only
+knobs available to a user to tweak transaction standardness rules, let alone relay policy. Would it
+make sense for Bitcoin Core to provide startup options to tweak other aspects of policy? Should we
+add an option to let the user pick what transaction version should its node consider standard? An
+option to accept transactions that are timelocked up to <code>N</code> blocks in the future in its mempool? To
+disable wtxid relay? Obviously not. But why? And how do we think about it consistently?</p>
+<p>For one, options do not come for free. They increase code complexity and cognitive load on the user.
+Additional load means reduced ability for the user to make an informed decision about every single
+option. So the question, really, is when should we have an option? I think the answer to that is
+&ldquo;when we can reasonably expect users to have a good reason to change the default, and more so than
+for other options we could provide instead&rdquo;.</p>
+<p>According to this criterion we&rsquo;ve established, what can we say of <code>-datacarrier</code> and
+<code>-datacarriersize</code> in a world where there is no restriction on <code>OP_RETURN</code>s by default? First of all
+defaults are sticky. The vast majority of people do not change the default, so we can&rsquo;t really
+expect providing the startup option to have any global effect. The local effect of a user setting
+<code>-datacarrier=0</code> or <code>-datacarriersize=X</code> on their node would effectively just be shooting themselves
+in the foot: they would willfully blind themselves to part of unconfirmed transaction activity. If
+they are a miner this could increase roundtrips for compact block reconstruction. If they are
+transacting, this would prevent them from seeing part of transactions they are competing with
+for block space.</p>
+<p>Once the default is set to not impose restrictions on the use of <code>OP_RETURN</code> outputs, there is no
+reason for a user to change the default. Therefore i don&rsquo;t think a startup option to do that should
+exist.</p>
+<p>Freedom is good. Having a startup option for every single operation that pertains to relay policy is
+not that.</p>
+<h2 id="is-bitcoin-dead">Is Bitcoin dead?</h2>
+<p>No.</p>
+<p>Many have taken the opportunity of my proposal to grandstand on Twitter. They exploit gullible
+people by making wild claims about <code>OP_RETURN</code> outputs being an existential threat to Bitcoin. I
+hope my post made it clear it is not, but consider also this. If Bitcoin was so brittle that Core
+choosing to relay perfectly safe, inexpensive to validate, consensus-valid transactions would break
+it, it would be utterly uninteresting in the first place!</p>
+<p>The ability of this parasitical group to reach this level of attention is really telling of what our
+community values. I hope bitcoiners start demonstrating more critical thinking and stop giving in to
+the latest conspiracy theory every 6 months.</p>
+<h2 id="is-bitcoin-core-compromised">Is Bitcoin Core compromised?</h2>
+<p>No.</p>
+<p>You should be highly skeptical of anyone making this claim. It&rsquo;s harmful, to people and indirectly
+to Bitcoin&rsquo;s long term success. Cultural incentives matter. It is about time that we stop tolerating
+nonsense and come back to a place where most of us value (proof of) work, ideas, and selflessness
+instead of overblown emotional reactions, unbacked wild claims and adhesion to various cults.</p>
+<p>For more on Bitcoin Core i highly recommend Adam Jonas&rsquo; <a href="https://youtu.be/TqxDr_SjAgg?t=19080">&ldquo;Has Bitcoin Core lost focus?&rdquo;</a>.</p>
+
+    </div>
+
+    
+
+            </div>
+        </div><footer class="text-center pb-1">
+    <small class="text-muted">
+        
+             
+        
+        <br>
+        Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        and <a href="https://github.com/austingebauer/devise" target="_blank">Devise</a>
+    </small>
+</footer>
+</body>
+</html>
