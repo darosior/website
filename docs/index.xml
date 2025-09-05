@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright> </copyright>
-    <lastBuildDate>Thu, 01 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://antoinep.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Misbehaving nodes investigation</title>
+      <link>https://antoinep.com/posts/misbehaving_nodes/</link>
+      <pubDate>Fri, 05 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://antoinep.com/posts/misbehaving_nodes/</guid>
+      <description>&lt;p&gt;In late June 2025, Eric Voskuil reached out to me asking about a weird behaviour he had observerved&#xA;on the Bitcoin network. Libbitcoin had started dropping peers which advertized an excessively off&#xA;timestamp in their &lt;code&gt;version&lt;/code&gt; message and they found that while most peers were within seconds, a&#xA;handful were off by small amounts and a large number was behind by up to 5100 minutes.  What&amp;rsquo;s more,&#xA;all those peers were Bitcoin Core v27.1 or v27.2.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>On relay policy and recent OP_RETURN drama</title>
       <link>https://antoinep.com/posts/relay_policy_drama/</link>
