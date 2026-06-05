@@ -7,13 +7,27 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright> </copyright>
-    <lastBuildDate>Fri, 05 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://antoinep.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bitcoin</title>
       <link>https://antoinep.com/tags/bitcoin/</link>
-      <pubDate>Fri, 05 Sep 2025 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 +0000</pubDate>
       <guid>https://antoinep.com/tags/bitcoin/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Quantum</title>
+      <link>https://antoinep.com/tags/quantum/</link>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://antoinep.com/tags/quantum/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Soft Fork</title>
+      <link>https://antoinep.com/tags/soft-fork/</link>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://antoinep.com/tags/soft-fork/</guid>
       <description></description>
     </item>
     <item>
@@ -49,13 +63,6 @@
       <link>https://antoinep.com/tags/rust-miniscript/</link>
       <pubDate>Thu, 24 Apr 2025 00:00:00 +0000</pubDate>
       <guid>https://antoinep.com/tags/rust-miniscript/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Soft Fork</title>
-      <link>https://antoinep.com/tags/soft-fork/</link>
-      <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://antoinep.com/tags/soft-fork/</guid>
       <description></description>
     </item>
   </channel>

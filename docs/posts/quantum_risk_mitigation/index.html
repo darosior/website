@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+    <title>Antoine Poinsot - Quantum threat: let&#39;s not turn Bitcoin into an altcoin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A case for mitigating quantum-computer risk without compromising Bitcoin’s core properties." />
+
+    <meta property="og:url" content="https://antoinep.com/posts/quantum_risk_mitigation/">
+  <meta property="og:site_name" content="Antoine Poinsot">
+  <meta property="og:title" content="Quantum threat: let&#39;s not turn Bitcoin into an altcoin">
+  <meta property="og:description" content="A case for mitigating quantum-computer risk without compromising Bitcoin’s core properties.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-06-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-06-05T00:00:00+00:00">
+    <meta property="article:tag" content="Bitcoin">
+    <meta property="article:tag" content="Quantum">
+    <meta property="article:tag" content="Soft Fork">
+
+    <meta name="og:image" content="https://antoinep.com/images/kebab_bordeaux.jpg" /> 
+
+    
+    
+    
+    <link rel="stylesheet" href="../../css/theme.min.css">
+
+    
+    
+    
+    
+    <link rel="stylesheet" href="../../css/custom.min.css">
+    
+
+    
+</head>
+<body>
+        <div id="content" class="mx-auto"><header class="container mt-sm-5 mt-4 mb-4 mt-xs-1">
+    <div class="row">
+        
+        <div class="col-sm-4 col-12 text-sm-right text-center pt-sm-4">
+            <a href="../../" class="text-decoration-none">
+                <img id="home-image" class="rounded-circle"
+                    
+                        
+                            src="../../images/kebab_bordeaux.jpg"
+                        
+                    
+                />
+            </a>
+        </div>
+        <div class="col-sm-8 col-12 text-sm-left text-center">
+        
+            <h2 class="m-0 mb-2 mt-4">
+                <a href="../../" class="text-decoration-none">
+                    
+                        Antoine Poinsot
+                    
+                </a>
+            </h2>
+            <p class="text-muted mb-1">
+                
+                    590B 7292 695A FFA5 B672 CBB2 E13F C145 CD3F 4304
+                
+            </p>
+            <ul id="nav-links" class="list-inline mb-2">
+                
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../" title="About">About</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../posts/" title="Posts">Posts</a>
+                    </li>
+                
+            </ul>
+            <ul id="nav-social" class="list-inline">
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://twitter.com/darosior" target="_blank">
+                            <i class="fab fa-twitter fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="http://github.com/darosior" target="_blank">
+                            <i class="fab fa-github fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://www.linkedin.com/in/antoine-p/" target="_blank">
+                            <i class="fab fa-linkedin-in fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://bsky.app/profile/darosior.bsky.social" target="_blank">
+                            <i class="fab fa-bluesky fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="mailto:darosior@protonmail.com" target="_blank">
+                            <i class="fa-solid fa-envelope fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="../../0xE13FC145CD3F4304.asc" target="_blank">
+                            <i class="fa-solid fa-key fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    <hr />
+</header>
+<div class="container">
+    <div class="pl-sm-4 ml-sm-5">
+        <h1 id="quantum-threat-lets-not-turn-bitcoin-into-an-altcoin">Quantum threat: let&rsquo;s not turn Bitcoin into an altcoin</h1>
+<p>Cryptographically Relevant Quantum Computers are an uncertain, existential threat to Bitcoin.
+Discussions about addressing this issue raise fundamental questions about the nature of Bitcoin, as
+a consensus system and as a currency. Some trends in the discourse around this issue concern me, so
+naturally i figured one more blog post would fix that.</p>
+<p>I believe there is something that sets Bitcoin apart from technically similar competing
+alternatives. Apparently, so does the market. The reason for this boils down to network effects:
+people believe Bitcoin is useful because other people believe Bitcoin is useful. And the cornerstone
+of usefulness is reliability: most people expect to be safer storing value in Bitcoin than in any of
+the competing alternatives. I believe this expectation largely matches reality, but the way Bitcoin
+approaches the CRQC threat could drastically change this.</p>
+<p>Two possible responses to this risk could undermine trust in Bitcoin so severely as to make it
+indistinguishable from an altcoin. The first one is that a large portion of the userbase gets their
+coins stolen, as that would be a fatal blow to network effects. The other one is that the vast
+majority of the economy coordinates to pre-emptively freeze other people&rsquo;s coins, deemed to pose a
+systemic risk if a CRQC materializes, as that would directly undermine Bitcoin&rsquo;s value proposition.
+It is important to stress that the latter is not merely an ideological position: confiscation being
+impractical is the whole reason why users trust Bitcoin to have value in the first place. Break this
+trust, and you&rsquo;ll eventually lose the network effects.</p>
+<p>These failure scenarios may only be avoided if the vast majority of Bitcoin users have migrated to
+post-quantum output types by the time, if ever, the Bitcoin economy believes a CRQC will imminently
+materialize. Therefore a migration strategy should attempt to maximize the number of individual
+users upgraded before Quantum Panic day (QP-day?). This is an enormous undertaking, because most
+Bitcoin users are not active Bitcoin enthusiasts or companies. They don&rsquo;t keep up with the latest
+developments, rarely move their coins, and even more rarely upgrade their custody setup. This means
+that in the scenario where a CRQC eventually materializes, migration must take place during the
+period of uncertainty, as once we knew for sure it was going to happen it would already be too late
+to migrate the long tail of Bitcoin users.</p>
+<p>To make matters worse, the PQ signature scheme would itself be more cumbersome to use and several
+common practices that underpin today&rsquo;s Bitcoin usage would be unavailable<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. This is
+a typical collective action dilemma: everyone would greatly benefit from everyone migrating (in the
+event a CRQC does materialize), yet every individual&rsquo;s benefits to unilaterally migrate are
+low<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> and associated costs are high. In light of this, i think it&rsquo;s useful to classify
+migration strategies in two categories: strategies whose costs are borne individually vs strategies
+whose costs are borne collectively.</p>
+<p>In the first category i would include P2QR<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>, an output type that makes a PQ signature scheme
+available <em>exclusively</em>. This maximizes the (limited<sup id="fnref1:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>) individual benefits if CRQCs become
+a reality, as it guarantees the owner retains access to his coins on any chain that survives. It is
+also the only option that is effectively a full migration, which is useful in avoiding &ldquo;marketing
+upgrades&rdquo; whereby a service provider adopts the official PQ migration output types while still
+leaving its users dependent on EC security assumptions<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>. Of course, the downside
+of this approach is that individual users must bear the costs of upgrading long before anyone knows
+whether it is at all necessary. This strategy therefore does not satisfactorily address the &ldquo;long
+tail&rdquo; problem.</p>
+<p>In the second category i would include P2TRv2<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>, which prescribes introducing a Taproot clone
+with a PQ signature scheme available in leaf scripts, so users can attach a PQ escape hatch to their
+coins at no cost, to later complete the migration by disabling EC operations in this output type
+if/when the CRQC threat materializes. Because it is no more expensive to use, wallets would start
+defaulting to this output type and progressively migrate the long tail of users over the next
+~decade<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>. As time passes, more information about the progress of CRQCs can guide the
+next steps.</p>
+<p>This strategy embraces the fact that we simply do not have a good replacement for EC-based
+signatures. Making access to CRQC resistance depend on introducing significant friction in (or giving up
+entirely) established workflows and use cases will lead to users not migrating until the CRQC threat
+materializes. This would not give the long tail of Bitcoin users enough time to migrate before
+QP-day and therefore leave the system vulnerable. Since Bitcoin still systemically relies on EC
+security unless the vast majority of users migrate, P2TRv2 leverages Taproot&rsquo;s hidden spend path
+feature to eliminate the individual costs of opting into the migration, and lets its completion be a
+later consensus change.</p>
+<p>And even if we had a good replacement for EC cryptography, the P2TRv2 strategy would also shine on
+two fronts. First, it defers the step that comes with more downsides for Bitcoin until the CRQC
+threat becomes less speculative<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>. This is important even if you are convinced CRQCs
+are coming, because a more consensual first step may let the migration begin sooner. Secondly, it
+allows the work of porting to the new signature scheme the wide range of protocols, standards and
+use cases that can be salvaged to proceed in parallel with the migration period.</p>
+<p>Why not do both then? On the surface, this seems compelling: those who can afford to fully migrate
+to the more cumbersome PQ scheme today can, and others who prefer to opt into the escape-hatch
+solution can as well. Yay, more optionality! Well, not really. One of the options is critical to the
+success of the migration, since it gives a chance to migrate the long tail of users, while the other
+one is more of a nice to have. Actually the more credible EC disabling in P2TRv2 becomes, the more
+the P2QR strategy becomes a waste of onchain space rather than a nice to have. And having the P2TRv2
+output type as the Schelling point of the migration virtually guarantees that EC operations will be
+disabled in this output type: otherwise literally every active user risks losing their funds. Thus
+having P2QR as a second option alongside P2TRv2 would only create more risks by weakening P2TRv2 as
+the Schelling point of the migration.</p>
+<p>Various alternative strategies have been proposed based on the P2MR output type. First introduced in
+the 8th revision of <a href="https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki">BIP 360</a>, P2MR is a clone of Taproot but without the key path spend. I
+will discuss here the strategy i have seen most widely defended by proponents of P2MR: doing BIP 360
+alongside the introduction of a PQ signature scheme as a Script operand. The motivation is similar
+to that of P2TRv2: let users commit to a PQ spend path while still being able to use the cheaper EC
+spends. The big difference is the removal of the key path in an attempt to mitigate &ldquo;long range&rdquo;
+attacks. This difference unfortunately makes migration more expensive by about 15%<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup> and
+preemptively gives up the Taproot <a href="https://delvingbitcoin.org/t/changes-to-bip-360-pay-to-quantum-resistant-hash-p2qrh/1811/11">incentive structure</a>, key feature of the last
+Bitcoin upgrade. I believe this is the wrong tradeoff.</p>
+<p>The long-range vs short-range distinction is at the heart of the debate around the PQ migration
+strategy. I believe most of the disagreements come down to whether we should see this distinction as
+meaningful. From the point of view of an individual Bitcoin user, it certainly is meaningful: in a
+world where your public key becomes a secret, sharing it on a global public broadcast network
+clearly will increase your risk. But this does not mean that the distinction is meaningful when
+considering the Bitcoin system as a whole. Public keys are already assumed to be, well, public
+throughout widely adopted workflows. Users trust that the discrete logarithm problem is hard when
+their hardware wallets share their xpub with online devices, when their wallet software shares their
+xpub or output descriptor with their wallet provider, when they share their xpub with a payee, when
+they publish a silent payment address or a paynym, when they reuse or spend from a hashed-pubkey
+address, etc.. In these conditions, whether some users have their public keys hashed onchain before
+spending time is irrelevant to the PQ migration of the Bitcoin system.</p>
+<p>To fully migrate Bitcoin away from relying on EC security, the P2MR strategy would therefore need to
+be complemented by a later disabling of EC operations, just like P2TRv2. But besides making it more
+expensive for users to opt into the migration output type, it also incentivizes using it for
+<a href="https://delvingbitcoin.org/t/changes-to-bip-360-pay-to-quantum-resistant-hash-p2qrh/1811/9">purposes</a> other than PQ migration. This makes it harder to believe that 1) enough
+users would migrate in the first place and 2) the EC disabling would in fact happen, since it would
+raise confiscation concerns. For these reasons, and because i don&rsquo;t think we should downgrade
+Bitcoin until CRQCs materialize, i think P2TRv2 is a superior solution to P2MR.</p>
+<p>In conclusion, the goal of a PQ migration should be to allow Bitcoin <strong>as we know it</strong> to survive a
+break of the discrete logarithm assumption. Transforming Bitcoin into yet another altcoin by
+permitting widespread theft, or by enabling confiscation, is not an interesting goal. The major
+challenge is that each individual Bitcoin user would strongly benefit from everyone else migrating,
+while migration itself is individually costly and would need to begin long before we can be
+reasonably certain whether the CRQC threat will materialize. The P2TRv2 strategy addresses this
+issue by shifting the migration costs from individual users opting into using the new output
+type in the short term, to ~all Bitcoin users coordinating to update consensus rules in the
+medium to long term. And P2TRv2 variants that allow users to avoid revealing their public
+key onchain before spending make, in my view, the wrong set of tradeoffs.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Mikhail Kudinov and Jonas Nick, <a href="https://eprint.iacr.org/2025/2203">“Hash-based Signature Schemes for Bitcoin”</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Why should one migrate if nobody else does? One response may be to have coins available
+on an altcoin that bootstraps off of Bitcoin&rsquo;s UTxO set, but it says nothing of the value of said
+coins on whichever chain survives. This also ignores another option available to many users: just
+selling (part of) their coins to hedge against the CRQC risk.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>I steelmanned the case for P2QR <a href="https://gnusha.org/pi/bitcoindev/0vqF88LoOnY4GiUB4vf-MdeZpTAtR70tokS3cLwt2DX0e6_fD1X_wyhPwWEdIdm6R88AULObIU08CWsb5QfeoaM5c4yXPqN5wHyCrqMCtfQ=@protonmail.com/">here</a>, Pieter also previously
+suggested something like P2QR <a href="https://delvingbitcoin.org/t/changes-to-bip-360-pay-to-quantum-resistant-hash-p2qrh/1811/20">here</a>.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>Since &ldquo;Post-Quantum&rdquo; is a valuable marketing label currently, and most of the
+costs associated with migration arise not from using a different output type, but updating all your
+workflow with the new signature type that does not rely on EC security, this seems likely to happen.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>First proposed by Matt Corallo <a href="https://gnusha.org/pi/bitcoindev/c2684826-6c93-419b-9a96-c0f0a791c9ac@mattcorallo.com/">here</a>.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>This is possible because the vast majority of wallets use a single-key spending policy
+and follow BIP 32 to deterministically generate keys from a master key. This BIP 32 master key is
+itself derived from a seed using a hash function (the seed is itself generally derived from mnemonic
+words using BIP 39). This makes it possible to securely use a PQ key derived from the BIP 32 seed
+even if EC cryptography is broken.&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>There are of course <em>some</em> downsides to this first step, such as introducing a new
+output type. But these downsides are marginal compared to those of alternative strategies, and also
+come with benefits in the case where CRQCs never materialize, such as having more users migrated to
+Taproot.&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p>Calculation based on a 2-input, 2-output transaction for a typical single-key spending policy.&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+    </div>
+
+    
+
+            </div>
+        </div><footer class="text-center pb-1">
+    <small class="text-muted">
+        
+             
+        
+        <br>
+        Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        and <a href="https://github.com/austingebauer/devise" target="_blank">Devise</a>
+    </small>
+</footer>
+</body>
+</html>

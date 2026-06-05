@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright> </copyright>
-    <lastBuildDate>Wed, 18 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://antoinep.com/tags/soft-fork/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quantum threat: let&#39;s not turn Bitcoin into an altcoin</title>
+      <link>https://antoinep.com/posts/quantum_risk_mitigation/</link>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://antoinep.com/posts/quantum_risk_mitigation/</guid>
+      <description>&lt;h1 id=&#34;quantum-threat-lets-not-turn-bitcoin-into-an-altcoin&#34;&gt;Quantum threat: let&amp;rsquo;s not turn Bitcoin into an altcoin&lt;/h1&gt;&#xA;&lt;p&gt;Cryptographically Relevant Quantum Computers are an uncertain, existential threat to Bitcoin.&#xA;Discussions about addressing this issue raise fundamental questions about the nature of Bitcoin, as&#xA;a consensus system and as a currency. Some trends in the discourse around this issue concern me, so&#xA;naturally i figured one more blog post would fix that.&lt;/p&gt;&#xA;&lt;p&gt;I believe there is something that sets Bitcoin apart from technically similar competing&#xA;alternatives. Apparently, so does the market. The reason for this boils down to network effects:&#xA;people believe Bitcoin is useful because other people believe Bitcoin is useful. And the cornerstone&#xA;of usefulness is reliability: most people expect to be safer storing value in Bitcoin than in any of&#xA;the competing alternatives. I believe this expectation largely matches reality, but the way Bitcoin&#xA;approaches the CRQC threat could drastically change this.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>On Soft Forks</title>
       <link>https://antoinep.com/posts/softforks/</link>
