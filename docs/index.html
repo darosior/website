@@ -10,7 +10,9 @@
     <meta property="og:url" content="https://antoinep.com/">
   <meta property="og:site_name" content="Antoine Poinsot">
   <meta property="og:title" content="Antoine Poinsot">
-  <meta property="og:description" content="About I work on Bitcoin at Chaincode Labs. My work has recently been focused around enhancing the robustness of the protocol and the security of its implementations. I previously co-founded Wizardsardine, of which I am still a shareholder. There i researched Bitcoin vaults and implemented Revault, a Bitcoin vault for multi-party custody. I also maintained Liana, a Bitcoin wallet aimed at reducing risks of loss. Before that i co-founded Bitcoin-Lyon, a local Bitcoin broker in Lyon, France. I also used to contribute to Lightning.">
+  <meta property="og:description" content="About I work on Bitcoin at Chaincode Labs, mostly on security-related topics. You can follow my recent work on GitHub, Delving Bitcoin and the bitcoindev mailing list.
+I’ve done some security research in the Bitcoin space, and I’m involved in handling vulnerability reports to Bitcoin Core. More recently, I’ve started engaging with how Bitcoin should prepare for a potential cryptographically-relevant quantum computer.
+I’ve also worked on Bitcoin’s scripting capabilities. I contributed to Miniscript to make it possible to safely use existing primitives to their full extent, and to BIP 448 to introduce new useful primitives. These can make personal and professional self-custody safer, and help scale Bitcoin by supporting offchain usage with different tradeoffs than existing solutions.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
 
@@ -75,7 +77,7 @@
                 
                     <li class="list-inline-item mr-3">
                         <a href="https://twitter.com/darosior" target="_blank">
-                            <i class="fab fa-twitter fa-1x text-muted"></i>
+                            <i class="fab fa-x-twitter fa-1x text-muted"></i>
                         </a>
                     </li>
                 
@@ -118,30 +120,38 @@
     
     
         <div class="pl-sm-4 ml-sm-5">
-            <h1 id="about">About</h1>
-<p>I work on <a href="https://bitcoincore.org/">Bitcoin</a> at <a href="https://chaincode.com/about">Chaincode Labs</a>. My
-work has recently been focused around enhancing the robustness of the protocol and the security of
-its implementations. I previously co-founded <a href="https://wizardsardine.com">Wizardsardine</a>, of which I
-am still a shareholder. There i researched <a href="https://bitcoinops.org/en/topics/vaults/">Bitcoin
-vaults</a> and implemented
-<a href="https://wizardsardine.com/revault">Revault</a>, a Bitcoin vault for multi-party custody. I also
-maintained <a href="https://wizardsardine.com/liana">Liana</a>, a Bitcoin wallet aimed at reducing risks of
-loss. Before that i co-founded <a href="https://bitcoin-lyon.fr">Bitcoin-Lyon</a>, a local Bitcoin broker in
-Lyon, France. I also used to contribute to
-<a href="https://github.com/ElementsProject/lightning">Lightning</a>.</p>
+            <h2 id="about">About</h2>
+<p>I work on Bitcoin at <a href="https://chaincode.com/about">Chaincode Labs</a>, mostly on security-related topics. You can follow my recent
+work on <a href="https://github.com/darosior">GitHub</a>, <a href="https://delvingbitcoin.org/u/antoinep/activity">Delving Bitcoin</a> and the <a href="https://gnusha.org/pi/bitcoindev/?q=Antoine+Poinsot">bitcoindev mailing list</a>.</p>
+<p>I&rsquo;ve done some security research in the Bitcoin space, and I&rsquo;m involved in handling vulnerability
+reports to Bitcoin Core. More recently, I&rsquo;ve started engaging with how Bitcoin should
+<a href="./posts/quantum_risk_mitigation/">prepare</a> for a potential cryptographically-relevant quantum computer.</p>
+<p>I&rsquo;ve also worked on Bitcoin&rsquo;s scripting capabilities. I contributed to <a href="https://github.com/bitcoin/bips/blob/master/bip-0379.md">Miniscript</a> to make it
+possible to safely use existing primitives to their full extent, and to <a href="https://github.com/bitcoin/bips/blob/master/bip-0448.md">BIP 448</a> to introduce new
+useful primitives. These can make personal and professional self-custody safer, and help scale
+Bitcoin by supporting offchain usage with different tradeoffs than existing solutions.</p>
+<p>I previously co-founded <a href="https://wizardsardine.com">Wizardsardine</a>, where I remain a shareholder. There I researched Bitcoin
+vaults and implemented <a href="https://wizardsardine.com/revault">Revault</a>, a Bitcoin vault for multi-party custody. I also started and
+maintained the popular <a href="https://wizardsardine.com/liana">Liana</a> wallet, which aims to reduce the risk of losing access to funds.</p>
+<p>Before that I co-founded Bitcoin-Lyon, a local Bitcoin broker in Lyon, France.</p>
 <p>I&rsquo;m interested in information security, economics and politics.</p>
-<h1 id="publications">Publications</h1>
+<h2 id="publications">Publications</h2>
 <ul>
-<li><a href="https://delvingbitcoin.org/t/great-consensus-cleanup-revival/710?u=antoinep">Great consensus cleanup
-revival</a> - revisiting
-the Consensus Cleanup 2019 soft fork proposal 5 years later.</li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0448.md">BIP 448</a> - Bitcoin soft fork proposal to extend scripting capabilities with simple,
+well-understood primitives that improve offchain scaling protocols.</li>
+<li><a href="https://bitcoincore.org/en/2026/11/10/disclose-cve-2025-62860/">CVE-2025-62860</a> - thousands of Bitcoin nodes had their DoS and privacy protections
+disabled. Companion blog post <a href="./posts/cve-2025-62860/">here</a>.</li>
+<li><a href="https://bitcoincore.org/en/2025/10/24/disclose-cve-2025-46598/">CVE-2025-46598</a> - Bitcoin Core could be repeatedly stalled for multiple seconds at virtually
+no cost to an attacker. The same setup cost could be reused to stall multiple nodes in parallel.</li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0054.md">BIP 54</a> - Bitcoin soft fork proposal to address four long-standing vulnerabilities and
+weaknesses.</li>
 <li><a href="https://delvingbitcoin.org/t/cve-2024-38365-public-disclosure-btcd-findanddelete-bug/1184?u=antoinep">CVE-2024-38365</a> - chain
 split vulnerability in btcd which can be exploited at virtually no cost.</li>
 <li><a href="https://wizardsardine.com/blog/ledger-vulnerability-disclosure">Ledger Security Bulletin 019</a> -
 some spending conditions of a Bitcoin Script were not correctly implemented by the Ledger firmware
 and could have led to a loss of funds.</li>
 <li><a href="https://blog.btcpayserver.org/btcpay-server-cve-2022-32984">CVE-2022-32984</a> - under some
-configuration the credentials to the Lightning node of a BTCPay Server point of sale were leaked,
+configurations the credentials to the Lightning node of a BTCPay Server point of sale were leaked,
 exposing all its funds to an attacker.</li>
 <li><a href="https://arxiv.org/abs/2102.09392v2">Swambo, J., Poinsot, A. (2021). Risk Framework for Bitcoin Custody Operation with the Revault
 Protocol.</a> - In: Bernhard, M., et al. Financial Cryptography
