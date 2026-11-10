@@ -49,7 +49,7 @@ publishDir = "docs"
     href = "https://bsky.app/profile/darosior.bsky.social"
   [[params.social]]
     fa_icon = "fa-solid fa-envelope fa-1x"
-    href = "mailto:darosior@protonmail.com"
+    href = "mailto:mail@antoinep.com"
   [[params.social]]
     fa_icon = "fa-solid fa-key fa-1x"
     href = "/0xE13FC145CD3F4304.asc"
