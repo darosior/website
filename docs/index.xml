@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright> </copyright>
-    <lastBuildDate>Fri, 05 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://antoinep.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CVE-2025-62860: thousands of Bitcoin nodes disabled DoS protection</title>
+      <link>https://antoinep.com/posts/cve-2025-62860/</link>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>https://antoinep.com/posts/cve-2025-62860/</guid>
+      <description>&lt;h2 id=&#34;cve-2025-62860-thousands-of-bitcoin-nodes-disabled-dos-protection&#34;&gt;CVE-2025-62860: thousands of Bitcoin nodes disabled DoS protection&lt;/h2&gt;&#xA;&lt;p&gt;In September 2025, Martin Zumsande stumbled upon a bunch of misbehaving Bitcoin Knots nodes. This&#xA;led us to discover a widespread configuration bug which exposed Bitcoin Knots and Bitcoin Core nodes&#xA;to privacy leaks and various DoS vectors.&lt;/p&gt;&#xA;&lt;p&gt;It already feels far away, but until not too long ago Bitcoin was targeted by a&#xA;&lt;a href=&#34;https://blog.lopp.net/bip-110-post-mortem&#34;&gt;campaign&lt;/a&gt; of disinformation and harassment to promote a misguided fork coin. This&#xA;all started when a group of Bitcoin enthusiasts, vocal on social media, objected to a &lt;a href=&#34;https://antoinep.com/posts/relay_policy_drama/&#34;&gt;default relay&#xA;policy change&lt;/a&gt; in Bitcoin Core. They decided to turn to Bitcoin Knots as an&#xA;alternative, at the time still merely a fork of Bitcoin Core&amp;rsquo;s software, not yet of the Bitcoin&#xA;network.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Quantum threat: let&#39;s not turn Bitcoin into an altcoin</title>
       <link>https://antoinep.com/posts/quantum_risk_mitigation/</link>
