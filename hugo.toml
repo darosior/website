@@ -48,6 +48,9 @@ publishDir = "docs"
     fa_icon = "fab fa-bluesky fa-1x"
     href = "https://bsky.app/profile/darosior.bsky.social"
   [[params.social]]
+    fa_icon = "fa-solid fa-rss fa-1x"
+    href = "/posts/index.xml"
+  [[params.social]]
     fa_icon = "fa-solid fa-envelope fa-1x"
     href = "mailto:mail@antoinep.com"
   [[params.social]]

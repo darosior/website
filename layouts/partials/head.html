@@ -20,5 +20,8 @@
     <link rel="stylesheet" href="{{ $custom.RelPermalink }}">
     {{ end }}
 
+    <!-- RSS tag -->
+    <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ "posts/index.xml" | absURL }}">
+
     {{ template "_internal/google_analytics.html" . }}
 </head>
