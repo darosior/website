@@ -1,0 +1,17 @@
+{{ define "main" }}
+    <div class="pl-sm-4 ml-sm-5">
+        <ul class="list-unstyled">
+        {{ range .Pages }}
+            <li class="mb-4">
+                <a href="{{ .RelPermalink }}">
+                    {{ if .Draft }}DRAFT: {{ end }}{{ .Title }}
+                </a>
+                <div class="small text-muted">
+                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+                    {{- with .Description }} · {{ . }}{{ end }}
+                </div>
+            </li>
+        {{ end }}
+        </ul>
+    </div>
+{{ end }}

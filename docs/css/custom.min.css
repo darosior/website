@@ -1,1 +1,1 @@
-#content{text-align:justify}
+#content>.container p{text-align:justify;hyphens:auto}#content>.container p a{hyphens:manual}
