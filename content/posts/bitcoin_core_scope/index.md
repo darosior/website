@@ -1,10 +1,9 @@
 +++
 date = 2025-02-13
 draft = false
-type = "blog"
+type = "post"
 title = "Bitcoin Core scope, concretely"
 description = "A route to re-focus the main Bitcoin Core repo on its core mission."
-weight = 10
 author = "Antoine Poinsot"
 tags = ["Bitcoin", "Bitcoin Core"]
 +++

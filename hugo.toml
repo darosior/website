@@ -6,8 +6,8 @@ theme = "devise"
 relativeURLs = true
 enableRobotsTXT = true
 copyright = " "
+publishDir = "docs"
 
-# Menu items are disabled until i write the first blog post.
 [menu]
   [[menu.main]]
     identifier = "about"
@@ -40,7 +40,7 @@ copyright = " "
     href = "https://twitter.com/darosior"
   [[params.social]]
     fa_icon = "fab fa-github fa-1x"
-    href = "http://github.com/darosior"
+    href = "https://github.com/darosior"
   [[params.social]]
     fa_icon = "fab fa-linkedin-in fa-1x"
     href = "https://www.linkedin.com/in/antoine-p/"

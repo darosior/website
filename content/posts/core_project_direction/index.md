@@ -1,10 +1,9 @@
 +++
 date = 2025-01-24
 draft = false
-type = "blog"
+type = "post"
 title = "Bitcoin Core project direction"
 description = "What should be the vision and long term goals for the Bitcoin Core project?"
-weight = 10
 author = "Antoine Poinsot"
 tags = ["Bitcoin", "Bitcoin Core"]
 +++

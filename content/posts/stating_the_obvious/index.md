@@ -1,10 +1,9 @@
 +++
 date = 2025-02-05
 draft = false
-type = "blog"
+type = "post"
 title = "Stating the obvious"
 description = "A proposition of a scope for the Bitcoin Core project"
-weight = 10
 author = "Antoine Poinsot"
 tags = ["Bitcoin", "Bitcoin Core"]
 +++

@@ -18,7 +18,7 @@
     <meta property="article:tag" content="Bitcoin">
     <meta property="article:tag" content="Bitcoin Core">
 
-    <meta name="og:image" content="https://antoinep.com/images/kebab_bordeaux.jpg" /> 
+    <meta property="og:image" content="https://antoinep.com/images/kebab_bordeaux.jpg" /> 
 
     
     
@@ -84,7 +84,7 @@
                     </li>
                 
                     <li class="list-inline-item mr-3">
-                        <a href="http://github.com/darosior" target="_blank">
+                        <a href="https://github.com/darosior" target="_blank">
                             <i class="fab fa-github fa-1x text-muted"></i>
                         </a>
                     </li>
@@ -119,8 +119,15 @@
     <hr />
 </header>
 <div class="container">
-    <div class="pl-sm-4 ml-sm-5">
-        <p>In late June 2025, Eric Voskuil reached out to me asking about a weird behaviour he had observerved
+    <div class="pl-sm-2">
+        <div class="mb-3">
+            <h3 class="mb-0">Misbehaving nodes investigation</h3>
+            
+            <small class="text-muted">Published September 5, 2025</small>
+        </div>
+
+        <article>
+            <p>In late June 2025, Eric Voskuil reached out to me asking about a weird behaviour he had observerved
 on the Bitcoin network. Libbitcoin had started dropping peers which advertized an excessively off
 timestamp in their <code>version</code> message and they found that while most peers were within seconds, a
 handful were off by small amounts and a large number was behind by up to 5100 minutes.  What&rsquo;s more,
@@ -268,6 +275,7 @@ IP 203.11.72.228: 8 version messages
 the misbehaviour was due to a clock misconfiguration, and the nodes running out of resources. They
 said they would immediately pause the nodes until they can reconfigure them properly.</p>
 
+        </article>
     </div>
 
     

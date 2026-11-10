@@ -1,10 +1,9 @@
 +++
 date = 2025-05-01
 draft = false
-type = "blog"
+type = "post"
 title = "On relay policy and recent OP_RETURN drama"
 description = "Relaxing restrictions on OP_RETURN is fine. Bitcoiners need to stop being so gullible."
-weight = 10
 author = "Antoine Poinsot"
 tags = ["Bitcoin", "Bitcoin Core", "Policy"]
 +++

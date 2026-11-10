@@ -1,15 +1,12 @@
 +++
 date = 2026-06-05
 draft = false
-type = "blog"
+type = "post"
 title = "Quantum threat: let's not turn Bitcoin into an altcoin"
 description = "A case for mitigating quantum-computer risk without compromising Bitcoin’s core properties."
-weight = 10
 author = "Antoine Poinsot"
 tags = ["Bitcoin", "Quantum", "Soft Fork"]
 +++
-
-## Quantum threat: let's not turn Bitcoin into an altcoin
 
 Cryptographically Relevant Quantum Computers are an uncertain, existential threat to Bitcoin.
 Discussions about addressing this issue raise fundamental questions about the nature of Bitcoin, as

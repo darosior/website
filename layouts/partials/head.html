@@ -6,7 +6,7 @@
     <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
 
     {{ template "_internal/opengraph.html" . }}
-    <meta name="og:image" content="https://antoinep.com/images/kebab_bordeaux.jpg" /> <!-- TODO: use a different image for each post -->
+    <meta property="og:image" content="https://antoinep.com/images/kebab_bordeaux.jpg" /> <!-- TODO: use a different image for each post -->
 
     {{/* Adds complete override capability */}}
     {{ $overrideTemplate := resources.Get "sass/override.scss" }}

@@ -1,10 +1,9 @@
 +++
 date = 2025-09-05
 draft = false
-type = "blog"
+type = "post"
 title = "Misbehaving nodes investigation"
 description = "An investigation into a few hundreds misbehaving publicly reachable nodes on the Bitcoin network"
-weight = 10
 author = "Antoine Poinsot"
 tags = ["Bitcoin", "Bitcoin Core"]
 +++
