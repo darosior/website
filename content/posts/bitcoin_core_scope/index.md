@@ -30,7 +30,7 @@ The multiprocess project presents an opportunity in this regard. Separate `bitco
 door to splitting the current project into 3. The contributors at
 [github.com/bitcoin/bitcoin](https://github.com/bitcoin/bitcoin) would focus on the Bitcoin Core
 node and release a `bitcoin-node` program, exposing JSONRPC and IPC interfaces. The contributors
-at [github.com/bitcoin-core/wallet](github.com/bitcoin-core/wallet) would work on the
+at [github.com/bitcoin-core/wallet](https://github.com/bitcoin-core/wallet) would work on the
 `bitcoin-wallet` process. The Bitcoin Core wallet releases would contain both the wallet and node
 processes, presumably with a wrapper to make it transparent to users. This project would release the
 equivalent of today's `bitcoind`. Finally, the contributors at

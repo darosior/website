@@ -1,0 +1,5 @@
+{{- /* Use absolute URLs for images so they also work in the RSS feed. */ -}}
+{{- $src := .Destination -}}
+{{- with .Page.Resources.Get .Destination }}{{ $src = .Permalink }}{{ end -}}
+<img src="{{ $src }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }}>
+{{- /**/ -}}
