@@ -9,7 +9,7 @@ author = "Antoine Poinsot"
 tags = ["Bitcoin", "Quantum", "Soft Fork"]
 +++
 
-# Quantum threat: let's not turn Bitcoin into an altcoin
+## Quantum threat: let's not turn Bitcoin into an altcoin
 
 Cryptographically Relevant Quantum Computers are an uncertain, existential threat to Bitcoin.
 Discussions about addressing this issue raise fundamental questions about the nature of Bitcoin, as
