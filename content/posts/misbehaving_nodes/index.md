@@ -8,7 +8,7 @@ author = "Antoine Poinsot"
 tags = ["Bitcoin", "Bitcoin Core"]
 +++
 
-In late June 2025, Eric Voskuil reached out to me asking about a weird behaviour he had observerved
+In late June 2025, Eric Voskuil reached out to me asking about a weird behaviour he had observed
 on the Bitcoin network. Libbitcoin had started dropping peers which advertized an excessively off
 timestamp in their `version` message and they found that while most peers were within seconds, a
 handful were off by small amounts and a large number was behind by up to 5100 minutes.  What's more,
